@@ -24,7 +24,7 @@
 // Title page
 #align(center)[
   #text(size: 16pt, weight: "bold")[
-    Oberflächenfunktionalisierung von Floatglas per Direct Laser Interference Patterning für Anti-fogging Anwendungen
+    A Oberflächenfunktionalisierung von Floatglas per Direct Laser Interference Patterning für Anti-fogging Anwendungen
   ]
   
   #v(1cm)
