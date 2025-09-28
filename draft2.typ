@@ -24,7 +24,7 @@
 // Title page
 #align(center)[
   #text(size: 16pt, weight: "bold")[
-    A Oberflächenfunktionalisierung von Floatglas per Direct Laser Interference Patterning für Anti-fogging Anwendungen
+    Oberflächenfunktionalisierung von Floatglas per Direct Laser Interference Patterning für Anti-fogging Anwendungen
   ]
   
   #v(1cm)
@@ -56,6 +56,7 @@
 ]
 
 #pagebreak()
+#outline(depth: 2)
 
 = Einleitung
 
@@ -104,7 +105,7 @@ Zur Qualitätskontrolle sind folgende Systeme integriert:
 - Leistungsmessung über kalibrierten Laserleistungssensor
 - Temperaturüberwachung der kritischen Optikkomponenten
 
-= Laser-Glas-Wechselwirkung bei grüner Laserstrahlung
+= Laser-Glas-Wechselwirkung
 
 == Grundlagen der Mehrphotonen-Absorption
 
