@@ -348,6 +348,11 @@ mit $v$ als Scangeschwindigkeit, $f$ als Repetitionsrate und $d_"spot"$ als Spot
 - Optimaler Bereich: 50–150%
 //- Konstante Fluenz: 2 J/cm²
 
+== Hatchfaktor (Spur- und Pulsüberlappung)
+Der Hatchfaktor (HF) beschreibt die kombinierte Wirkung von Spur- und Pulsüberlappung bezogen auf die Periode des Interferenzmusters:
+$ "HF" = (1 - d_y / Lambda) times (1 - v/(f times d_"spot")) $
+- Variationsbereich: 0,25–0,9
+- Schrittweite: 0,1
 == Probenmatrix
 
 Auf jeder Probe wurde eine systematische 5×5-Matrix erstellt:
