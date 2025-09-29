@@ -7,7 +7,7 @@
 )
 
 #set text(
-  font: "Helvetica",
+  font: "Arial",
   size: 11pt,
   lang: "de",
 )
@@ -104,7 +104,7 @@ Zur Qualitätskontrolle sind folgende Systeme integriert:
 - Strahlprofilmessung mittels CCD-Kamera
 - Leistungsmessung über kalibrierten Laserleistungssensor
 - Temperaturüberwachung der kritischen Optikkomponenten
-
+/*
 = Laser-Glas-Wechselwirkung
 
 == Grundlagen der Mehrphotonen-Absorption
@@ -165,7 +165,7 @@ Diese chemischen Modifikationen resultieren in einer veränderten Oberflächenzu
 == Zusammenfassung der Laser-Glas-Wechselwirkung
 
 Die Wechselwirkung von grüner Laserstrahlung (532 nm) mit Glas erfordert nichtlineare Absorptionsprozesse für eine effektive Materialbearbeitung. Der Mehrphotonen-Prozess ermöglicht präzise Ablation mit minimaler thermischer Schädigung des umgebenden Materials. Die entstehenden Druckwellen und chemischen Modifikationen sind integrale Bestandteile des Ablationsmechanismus und bestimmen maßgeblich die Qualität der Laserbearbeitung. Das Verständnis dieser Prozesse ist essentiell für die Optimierung von Laserbearbeitungsparametern in der Glasverarbeitung.
-
+*/
 = Atmosphären- und Zinnseite von Floatglas
 
 == Herstellungsbedingte Oberflächenunterschiede
@@ -260,10 +260,10 @@ Die Zinnverteilung auf der Zinnseite ist nicht vollständig homogen, was zu loka
 
 Für optimale DLIP-Resultate sollten folgende Aspekte berücksichtigt werden:
 
-1. **Seitenwahl:** Für höchste Präzision sollte die Atmosphärenseite verwendet werden
-2. **Parameteranpassung:** Seitenspezifische Optimierung der Laserparameter
-3. **Qualitätskontrolle:** Kontinuierliche Überwachung der Strukturierungsqualität
-4. **Vorreinigung:** Bei kritischen Anwendungen kann Sauerstoffplasma-Behandlung die Oberflächenreinheit verbessern
+1. *Seitenwahl:* Für höchste Präzision sollte die Atmosphärenseite verwendet werden
+2. *Parameteranpassung:* Seitenspezifische Optimierung der Laserparameter
+3. *Qualitätskontrolle:* Kontinuierliche Überwachung der Strukturierungsqualität
+4. *Vorreinigung:* Bei kritischen Anwendungen kann Sauerstoffplasma-Behandlung die Oberflächenreinheit verbessern
 
 = Proben und Layout
 
