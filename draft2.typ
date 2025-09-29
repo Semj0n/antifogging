@@ -1,4 +1,6 @@
 // Academic paper template - manual formatting
+#import "@preview/cetz:0.3.1": canvas, draw
+
 #set page(
   paper: "a4",
   margin: (x: 2.5cm, y: 3cm),
@@ -70,7 +72,7 @@ Das verwendete DLIP-System basiert auf einem gepulsten Picosekundenlaser der Fir
 - Wellenlänge: 532 nm
 - Pulsdauer: < 12 ps
 - Repetitionsrate: bis 1 MHz
-- Maximale Leistung: 200 W
+- Maximale Leistung: 140 W
 
 Die Interferenzerzeugung erfolgt durch einen präzisionsgefertigten Strahlteiler, der den Primärstrahl in vier kohärente Teilstrahlen aufteilt. Diese werden mittels einem Prisma parallelisiert und anschließend mit einer F-Theta Linse unter definierten Winkeln zur Interferenz gebracht.
 
@@ -81,8 +83,8 @@ Die Interferenzoptik besteht aus den folgenden Komponenten:
 - Strahlaufweiter mit Vergrößerungsfaktor 2×
 - Polarisationsoptik zur Kontrolle der Interferenzkontraste
 - Galvo-Scanner zur schnellen Positionierung des Interferenzmusters
-- Telezentrische Fokussierlinse mit Brennweite f = 255 mm
-
+- Telezentrische Fokussierlinse mit Brennweite f = 100 mm
+- Spotdurchmesser im Fokus: ca. 120 μm
 Die Strukturperiode $Lambda$ kann über den Interferenzwinkel $theta$ eingestellt werden:
 
 $ Lambda_min = lambda / (sqrt(2) sin(theta_max/2)) $
@@ -92,18 +94,19 @@ Diese hängt fundamental von dem lateralen Abstand der vier Teilstrahlen sowie d
 == Prozessparameter-Kontrolle
 
 Das System ermöglicht die präzise Kontrolle folgender Parameter:
-- Laserleistung: 0,1–10 W
-- Repetitionsrate: 1–1000 kHz
-- Scangeschwindigkeit: 1–1000 mm/s
+- Laserleistung: 80–140 W
+- Repetitionsrate: 1000-5000 kHz
+- Scangeschwindigkeit: 1000–7000 mm/s
 - Spurüberlappung: 0–95%
 - Pulsüberlappung: variabel durch Repetitionsrate und Scangeschwindigkeit
 
 == Kalibrierung und Qualitätskontrolle
 
-Zur Qualitätskontrolle sind folgende Systeme integriert:
-- Strahlprofilmessung mittels CCD-Kamera
+Zur Qualitätskontrolle werden folgende Systeme verwendet:
 - Leistungsmessung über kalibrierten Laserleistungssensor
-- Temperaturüberwachung der kritischen Optikkomponenten
+- Strahlprofilmessung mittels CCD-Kamera
+- Interferenzmusteranalyse durch optische Mikroskopie
+
 /*
 = Laser-Glas-Wechselwirkung
 
@@ -170,7 +173,7 @@ Die Wechselwirkung von grüner Laserstrahlung (532 nm) mit Glas erfordert nichtl
 
 == Herstellungsbedingte Oberflächenunterschiede
 
-Bei der Floatglas-Herstellung entstehen zwei unterschiedliche Oberflächen mit charakteristischen Eigenschaften. Das geschmolzene Glas wird auf ein Bad aus flüssigem Zinn gegossen, wobei die Unterseite (Zinnseite) direkten Kontakt mit der Zinnschmelze hat, während die Oberseite (Atmosphärenseite) der Schutzgasatmosphäre aus Stickstoff und Wasserstoff ausgesetzt ist.
+Bei der Floatglas-Herstellung entstehen auf Grundlage der Funktionsweise des Prozesses zwei unterschiedliche Oberflächen mit charakteristischen Eigenschaften. Das geschmolzene Glas wird dabei auf ein Bad aus flüssigem Zinn gegossen, wobei die Unterseite (Zinnseite) direkten Kontakt mit der Zinnschmelze hat, während die Oberseite (Atmosphärenseite) der Schutzgasatmosphäre aus Stickstoff und Wasserstoff ausgesetzt ist. Dies führt zu deutlichen Unterschieden in der Oberflächenchemie und -morphologie der beiden Seiten. Die physikalischen Eigenschaften wie die Wechselwirkung mit Laserstrahlung variiert signifikant zwischen diesen beiden Seiten.
 
 === Zinnseite
 Die Zinnseite weist folgende charakteristische Eigenschaften auf:
@@ -246,8 +249,8 @@ Die optimalen DLIP-Parameter müssen seitenspezifisch angepasst werden:
   stroke: 0.5pt,
   [*Parameter*], [*Zinnseite*], [*Atmosphärenseite*],
   [Optimale Fluenz], [0,5–1,5 J/cm²], [2,0–3,0 J/cm²],
-  [Pulsüberlappung], [60–70%], [75–85%],
-  [Repetitionsrate], [< 50 kHz], [100–500 kHz]
+  [Pulsüberlappung], [50–200%], [50–200%],
+  [Repetitionsrate], [1-10 kHz], [1-10 kHz]
 )
 
 === Homogenitätsaspekte
@@ -264,8 +267,42 @@ Für optimale DLIP-Resultate sollten folgende Aspekte berücksichtigt werden:
 2. *Parameteranpassung:* Seitenspezifische Optimierung der Laserparameter
 3. *Qualitätskontrolle:* Kontinuierliche Überwachung der Strukturierungsqualität
 4. *Vorreinigung:* Bei kritischen Anwendungen kann Sauerstoffplasma-Behandlung die Oberflächenreinheit verbessern
+5. *Probenreinigung:* Isopropanol-Reinigung vor der Bearbeitung entfernt oberflächliche Verunreinigungen und verbessert die Reproduzierbarkeit
+#pagebreak()
 
 = Proben und Layout
+== Vorgehensweise
+1. Ohne DLIP unter dem Scanner
+  - Leistung messen mit Scanner bei pos(0,0)  (1,2,5,10,25,50,100kHz - 30-35-40….94)
+  - Spot vermessen, Durchmesser bestimmen, Intensitätsverteilung dokumentieren
+  - Kaustik für die beiden F-Theta Linsen (100mm,255mm)
+  - Tisch ausrichten für homogenes Scanfeld ca. 100x100mm (Kugel des Tisches unter Spot bei (0,0) aufbauen!
+    —> So, dass in allen Ecken gleiche Absorption bzw. Spotgröße erreicht wird. Auf Stahlkarte oder Themopapier
+  - *vermutlich besser 100mm für DLIP wählen, da sonst Puls beide Glasseiten bearbeitet, oder Parameter finden, der entsprechend nur eine Seite bearbeitet !!!!!!*
+  - Parametersuche nd Dokumentation - Bereich verfeinern Leistungsbereich suchen für min und max bezüglich der Absorption auf *nur* einer Seite für Zinn- und Athmosphärenseite. 
+  - Kontrolle der Strukturierung mit optischem Mikroskop
+  - Probenreinigung mit Isopropanol/ Ultraschallbad
+  - Auf Stahlkarte und auf Glas jeweils Layout (s.u) lasern
+  
+
+2. Maschine für DLIP Einrichten
+  - Leistung messen (unter Scanner bei pos(0,0))
+  - Spotdurchmesser und Periode bestimmen
+  - Interferenzvolumen messen
+  - Kontrolle, ob Scanfeld Probe homogen strukturiert, heißt die Pulse an allen vier Rändern sollten in etwa gleich groß sein,  *Z-Calibrierung in vier Ecken*
+  - Auf Stahlkarte und auf Glas jeweils Layout lasern
+  - Kontrolle der Strukturierung mit optischem Mikroskop
+  - Probenreinigung mit Isopropanol/ Ultraschallbad
+  - Auf Atomosphärenseite/ Zinnseite jeweils 5xSamples produzieren 
+3. Messungen
+*Jeweils 2 Proben (Zinnseite/Atmosphärenseite) mit gleicher Matrix gegen Referenzprobe messen*
+- Mit LSM vermessen (Tiefe für unterschiedliche Energie, *Oberflächenrauheit* für ausgewählte. Spur- und Pulsoverlapp variationen.
+- Transmissionsmessung mit Laseraufbau. (10x wiederholen) 
+- Transmissionsmessung mit Spektrometer (TU Dresden) 
+- REM Aufnahmen
+- Kontaktwinkelmessung
+- Antifogging Test
+
 
 == Substratmaterial
 
@@ -287,10 +324,10 @@ Als Substrat wurde standardmäßiges Floatglas (Schott B270) mit folgenden Eigen
 Die systematische Untersuchung erfolgte durch Variation folgender Parameter:
 
 === Laserleistung (P)
-- Variationsbereich: 0,5–5,0 W
-- Schrittweite: 0,5 W
-- Konstante Scangeschwindigkeit: 100 mm/s
-- Spotdurchmesser: 50 μm
+- Variationsbereich: 80–140 W
+- Schrittweite: 5 W
+- Konstante Scangeschwindigkeit: 1000 mm/s
+- Spotdurchmesser: 120 μm
 
 === Spurüberlappung (SO)
 Die Spurüberlappung ist definiert als:
@@ -298,24 +335,83 @@ $ "SO" = (1 - d_y / d_"spot") times 100% $
 
 wobei $d_y$ der Spurabstand und $d_"spot"$ der Spotdurchmesser ist.
 - Variationsbereich: 50–200%
-- Schrittweite: 50%
-- Konstante Fluenz: 2 J/cm²
+- Schrittweite: 25%
+//- Konstante Fluenz: 2 J/cm²
 
 === Pulsüberlappung (PO)
 Die Pulsüberlappung wird berechnet als:
 $ "PO" = (1 - v/(f times d_"spot")) times 100% $
 
 mit $v$ als Scangeschwindigkeit, $f$ als Repetitionsrate und $d_"spot"$ als Spotdurchmesser.
-- Variationsbereich: 50–95%
-- Optimaler Bereich: 70–80%
+ 
+- Variationsbereich: 50–200%
+- Optimaler Bereich: 50–150%
+//- Konstante Fluenz: 2 J/cm²
 
 == Probenmatrix
 
 Auf jeder Probe wurde eine systematische 5×5-Matrix erstellt:
 - Strukturierter Bereich: 15×15 mm² pro Feld
 - Strukturperiode: 10–25 μm (einstellbar über Interferenzwinkel)
-- Unstrukturierte Referenzfelder für Vergleichsmessungen
-- Gesamte Probenfläche: 100×100 mm²
+- Unstrukturierte Referenzprobe für Vergleichsmessungen
+== Probenlayout
+#canvas(length: 1cm, {
+  import draw: *
+  
+  // Scale: 1 unit = 1mm
+  let glass-size = 7 // 100mm
+  let patch-size = 1 // 15mm each patch
+  let patches = 5 // 5x5 grid
+  let spacing = .1 // 3.571mm between patches
+  
+  // Calculate total size of patch grid
+  let grid-size = patches * patch-size + (patches - 1) * spacing
+  
+  // Calculate offset to center the grid
+  let offset = (glass-size - grid-size) / 2
+  
+  // Draw the glass substrate (blue)
+  rect((0, 0), (glass-size, glass-size), fill: rgb("#4a90e2"), stroke: (thickness: 2pt, paint: black))
+  
+  // Draw 5x5 grid of patches with dot patterns
+  for row in range(patches) {
+    for col in range(patches) {
+      let x = offset + col * (patch-size + spacing)
+      let y = offset + row * (patch-size + spacing)
+      
+      // Draw patch background
+      rect((x, y), (x + patch-size, y + patch-size), fill: rgb("#ffcccc"), stroke: (thickness: 0.5pt, paint: black))
+      
+      // X-axis (columns): density increases - more pulses per area (equidistant)
+      let num-pulses = 5 + col * 3 // Increases from left to right
+      let pulse-spacing = patch-size / (num-pulses + 1)
+      
+      // Y-axis (rows): energy increases - larger dot radius
+      let base-radius = 0.015
+      let dot-radius = base-radius + row * 0.015 // Increases from bottom to top
+      
+      // Number of scanlines (constant across all patches)
+      let num-scanlines = 8
+      let scanline-spacing = patch-size / (num-scanlines + 1)
+      
+      // Draw dots in scanlines
+      for line in range(num-scanlines) {
+        let dot-y = y + (line + 1) * scanline-spacing
+        
+        for pulse in range(num-pulses) {
+          let dot-x = x + (pulse + 1) * pulse-spacing
+          
+          circle((dot-x, dot-y), radius: dot-radius, fill: rgb("#ff0000"), stroke: none)
+        }
+      }
+    }
+  }
+  
+  // Add labels
+  content((glass-size / 2, glass-size + 0.5), text(size: 10pt, weight: "bold")[100mm × 100mm Glass Sample])
+  content((glass-size / 2, -0.5), text(size: 7pt)[X: PO + SO increases → | Y: Energy increases ↑])
+})
+#pagebreak()
 
 = REM-Aufnahmen
 
